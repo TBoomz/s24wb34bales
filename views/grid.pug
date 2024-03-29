@@ -6,17 +6,17 @@ block content
   p The value of rows is #{query.rows} and the value of cols is #{query.cols}.
 
   // Convert query.rows and query.cols to numbers
-- let rows = Number(query.rows)
-- let cols = Number(query.cols)
+  - let rows = Number(query.rows)
+  - let cols = Number(query.cols)
 
   // Check if rows and cols are integers
   if (!Number.isInteger(rows) || !Number.isInteger(cols))
     p Rows and cols must be integers.
 
   // Check if rows and cols are between 3 and 13
-  - if (rows < 3 || rows > 13)
+  if (rows < 3 || rows > 13)
     p Number of rows must be between 3 and 13.
-  - else if (cols < 3 || cols > 13)
+  else if (cols < 3 || cols > 13)
     p Number of columns must be between 3 and 13.
 
   // Else
