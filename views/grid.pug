@@ -1,5 +1,32 @@
 extends layout
 
 block content
-  h1= title
-  
+  h1 #{title}
+  // Show the values of query.rows and query.cols
+  p Number of rows: #{query.rows}
+  p Number of columns: #{query.cols}
+
+  - // Convert query.rows and query.cols to numbers
+  - let rows = Number(query.rows)
+  - let cols = Number(query.cols)
+
+  // Check if rows or cols are not integers
+  if (!Number.isInteger(rows) || !Number.isInteger(cols))
+    p Rows and columns must be integers.
+
+  // Check if rows or cols are out of range
+  else if (rows < 3 || rows > 13)
+    p Number of rows must be between 3 and 13.
+  else if (cols < 3 || cols > 13)
+    p Number of columns must be between 3 and 13.
+
+  // If input is valid, generate the grid
+  else
+    table#outer
+      - // Loop through rows
+      - for (let i = 0; i < rows; i++)
+        tr#middle
+          - // Loop through columns
+          - for (let j = 0; j < cols; j++)
+            // Calculate the value for the cell
+            td= Math.min(i + 1, j + 1)
