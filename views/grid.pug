@@ -14,10 +14,11 @@ block content
     p Rows and cols must be integers.
 
   // Check if rows and cols are below 3 or above 13
-  if (rows < 3 || rows > 13)
-    p Number of rows must be between 3 and 13.
-  if (cols < 3 || cols > 13)
-    p Number of columns must be between 3 and 13.
+  else
+    if (rows < 3 || rows > 13)
+      p Number of rows must be between 3 and 13.
+    if (cols < 3 || cols > 13)
+      p Number of columns must be between 3 and 13.
 
   // Otherwise, generate the table
   - else
