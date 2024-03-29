@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var fossilsRouter = require('./routes/fossils'); // Added this line
+var fossilsRouter = require('./routes/fossils');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/fossils', fossilsRouter); // Changed this line to use fossilsRouter
+app.use('/fossils', fossilsRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
