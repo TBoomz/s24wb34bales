@@ -1,15 +1,18 @@
 extends layout
 
 block content
+  script.
+    let results = [
+      { era: "Jurassic", species: "Tyrannosaurus rex", age: 150 },
+      { era: "Cretaceous", species: "Triceratops", age: 68 },
+      { era: "Devonian", species: "Dunkleosteus", age: 380 }
+    ]
+
   .container-fluid
     .row
-      - let results = [
-        { era: "Jurassic", species: "Tyrannosaurus rex", age: 150 },
-        { era: "Cretaceous", species: "Triceratops", age: 68 },
-        { era: "Devonian", species: "Dunkleosteus", age: 380 }
-      ]
       each item in results
         .col-sm-2
           h2= item.era
           p Species: #{item.species}
           p Age: #{item.age} million years
+
