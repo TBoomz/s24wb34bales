@@ -14,15 +14,23 @@ block content
     p Rows and cols must be integers.
 
   // Check if rows and cols are below 3 or above 13
-  else if (rows < 3 || rows > 13)
-    p Number of rows must be between 3 and 13.
-  else if (cols < 3 || cols > 13)
-    p Number of columns must be between 3 and 13.
+  if (rows < 3 || rows > 13 || cols < 3 || cols > 13)
+    p Number of rows and columns must be between 3 and 13.
 
   // Otherwise, generate the table
-  else
+  - else
     table#outer
       - for(let i=0; i<rows; i++)
         tr#middle
           - for(let j=0; j<cols; j++)
             td= computeCellValue(i, j)
+
+  script.
+    function computeCellValue(row, col) {
+      // Convert row and col to numbers
+      row = Number(row);
+      col = Number(col);
+
+      // Compute the value for the cell
+      return Math.min(row, col) + 1;
+    }
