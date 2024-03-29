@@ -14,14 +14,13 @@ block content
     p Rows and cols must be integers.
 
   // Check if rows and cols are between 3 and 13
-  if (rows < 3 || rows > 13)
-    p Number of rows must be between 3 and 13.
-  else if (cols < 3 || cols > 13)
-    p Number of columns must be between 3 and 13.
+  else if (rows < 3 || rows > 13 || cols < 3 || cols > 13)
+    p Number of rows and columns must be between 3 and 13.
 
-  // Else
-  - else
+  // Otherwise, generate the table
+  else
     table#outer
-      - for(let i=0; i<10; i++) {
+      - for(let i=0; i<rows; i++)
         tr#middle
-      - }
+          - for(let j=0; j<cols; j++)
+            td= computeCellValue(i, j)
